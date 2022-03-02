@@ -1,5 +1,7 @@
+let imageApiUrl = `https://xkcd.now.sh/?comic=latest`
+
 function render() {
-  let promise = fetch(`https://xkcd.now.sh/?comic=latest`)
+  let promise = fetch(imageApiUrl)
   promise
     .then((res) => res.json())
     .then((resData) => {

@@ -1,6 +1,7 @@
 const contentDiv = document.getElementById('content')
 const btn = document.querySelector('button')
 const list = document.querySelector('ul')
+let photoApiUrl = `https://dog.ceo/api/breeds/image/random`
 
 btn.addEventListener('click', () => {
   try {
@@ -11,7 +12,7 @@ btn.addEventListener('click', () => {
 })
 
 function getNewPhoto() {
-  let promise = fetch(`https://dog.ceo/api/breeds/image/random`)
+  let promise = fetch(photoApiUrl)
   promise
     .then((res) => res.json())
     .then((imgSrc) => addPhotoToList(imgSrc.message))

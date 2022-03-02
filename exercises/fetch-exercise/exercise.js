@@ -16,12 +16,14 @@ Expected result
 Open index.html in your browser. Every time you refresh the page,
 a different greeting should be displayed in the box.
 */
+let greetingUrl = 'https://codeyourfuture.herokuapp.com/api/greetings'
 
-fetch('https://codeyourfuture.herokuapp.com/api/greetings')
+fetch(greetingUrl)
   .then(function (response) {
     return response.text()
   })
   .then(function (greeting) {
-    let txt = document.getElementById('greeting-text')
-    txt.innerText = greeting
+    let greetingText = document.getElementById('greeting-text')
+    greetingText.innerText = greeting
   })
+  .catch((err) => console.log(`Error : ${err}`))
